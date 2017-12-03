@@ -7,9 +7,9 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Water
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
+  m_LightmapFlags: 2
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -69,6 +69,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - first:
+        name: _SpecGlossMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _Tex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
         name: _BumpScale
@@ -83,13 +95,19 @@ Material:
         name: _DstBlend
       second: 0
     - first:
-        name: _GlossMapScale
+        name: _Exposure
       second: 1
     - first:
+        name: _GlossMapScale
+      second: 0.867
+    - first:
         name: _Glossiness
-      second: 0.5
+      second: 1
     - first:
         name: _GlossyReflections
+      second: 1
+    - first:
+        name: _InvFade
       second: 1
     - first:
         name: _Metallic
@@ -103,6 +121,9 @@ Material:
     - first:
         name: _Parallax
       second: 0.02
+    - first:
+        name: _Rotation
+      second: 0
     - first:
         name: _SmoothnessTextureChannel
       second: 0
@@ -121,7 +142,13 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.027627591, g: 0.36822268, b: 0.53676474, a: 1}
+      second: {r: 0.044279832, g: 0.32454655, b: 0.46323532, a: 1}
     - first:
         name: _EmissionColor
-      second: {r: 0, g: 0.15547673, b: 0.30882353, a: 1}
+      second: {r: 0.015084342, g: 0.12224678, b: 0.22794116, a: 1}
+    - first:
+        name: _SpecColor
+      second: {r: 0.030547125, g: 0.53282624, b: 0.8308824, a: 1}
+    - first:
+        name: _Tint
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}

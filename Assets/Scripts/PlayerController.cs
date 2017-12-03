@@ -31,21 +31,19 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         mouseLook();
-        movePlayer();
+        if (playerIsBeingControlled)
+        {
+            movePlayer();
+        }
     }
 
     void movePlayer()
     {
-        if (playerIsBeingControlled)
+        float step = movementSpeed * Time.deltaTime;
+
+        if (Input.GetAxisRaw("Vertical") == 1)
         {
-            float step = movementSpeed * Time.deltaTime;
-
-            if (Input.GetAxisRaw("Vertical") == 1)
-            {
-
-            }
-
-
+            trans.position = trans.position + CameraTrans.forward * step;
         }
     }
 
@@ -61,5 +59,21 @@ public class PlayerController : MonoBehaviour
 
         Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
         CameraTrans.rotation = localRotation;
+    }
+
+    void OnTriggerStay(Collider col)
+    {
+        if (col.gameObject.tag == "ShipControlZone" && Input.GetKeyDown(KeyCode.F))
+        {
+            takeControlOfShip(!playerIsBeingControlled);
+        }
+    }
+
+    void takeControlOfShip(bool takeControl)
+    {
+        //Do a check to see if noone else is controlling ship first.
+        playerIsBeingControlled = takeControl;
+        GameManager.singleton.shipIsBeingControlled = !takeControl;
+
     }
 }
