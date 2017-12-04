@@ -4,28 +4,29 @@ using UnityEngine;
 
 public class ShipController : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 4;
-    [SerializeField] private float turnSpeed = 4;
-
+    //Internal References
     private Transform trans;
     private Rigidbody rb;
 
-    // Use this for initialization
+    //Ship Attributes
+    [SerializeField] private float movementSpeed = 4;
+    [SerializeField] private float turnSpeed = 4;
+
     void Start()
     {
+        //Sets internal references
         trans = GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //If a player is controlling the ship, check for input and act accordingly.
         if (GameManager.singleton.shipIsBeingControlled)
         {
             controlShip();
         }
     }
-
 
     void controlShip()
     {
@@ -44,11 +45,11 @@ public class ShipController : MonoBehaviour
 
     void turnShip(float step)
     {
-        if (Input.GetAxisRaw("Horizontal") == 1)
+        if (Input.GetAxisRaw("Horizontal") == -1)
         {
             trans.Rotate(new Vector3(0, -turnSpeed * step, 0));
         }
-        else if (Input.GetAxisRaw("Horizontal") == -1)
+        else if (Input.GetAxisRaw("Horizontal") == 1)
         {
             trans.Rotate(new Vector3(0, turnSpeed * step, 0));
         }

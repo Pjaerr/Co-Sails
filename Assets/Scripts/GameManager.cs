@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [HideInInspector] public bool shipIsBeingControlled = false;
+    //Global Variables and References
+    [HideInInspector] public bool shipIsBeingControlled = false; //True when any player is controlling the ship.
+    public GameObject currentShip; //Inspector stored reference to the current ship. (*Needs to be changed to be automatic somehow);
 
     public static GameManager singleton = null;
 
@@ -21,5 +23,4 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
     }
-
 }
